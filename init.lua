@@ -19,14 +19,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 
---- plugins list
-
 local opts = {}
 
+require("vim-options")
 require("lazy").setup("plugins")
 
 
---- treesitter config
-
-
---- neo-tree configs
