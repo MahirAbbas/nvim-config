@@ -1,7 +1,7 @@
 vim.cmd("set expandtab")
-vim.cmd("set tabstop=4")
-vim.cmd("set softtabstop=4")
-vim.cmd("set shiftwidth=4")
+vim.cmd("set tabstop=2")
+vim.cmd("set softtabstop=2")
+vim.cmd("set shiftwidth=2")
 vim.g.mapleader = " "
 
 --- lazy setup
@@ -20,31 +20,13 @@ vim.opt.rtp:prepend(lazypath)
 
 
 --- plugins list
-local plugins = {
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-    {'nvim-telescope/telescope.nvim', tag = '0.1.5', dependencies = { 'nvim-lua/plenary.nvim' }},
-    {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"}
-}
 
 local opts = {}
 
+require("lazy").setup("plugins")
 
-
-require("lazy").setup(plugins, opts)
-
---- telescope configs
-local builtin = require("telescope.builtin")
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 
 --- treesitter config
-local config = require("nvim-treesitter.configs")
-config.setup({
-    ensure_installed = {"scala", "lua"},
-    highlight = {enable = true},
-    indent = {enable = true},
-})
 
---- colourscheme
-require("catppuccin").setup()
-vim.cmd.colorscheme "catppuccin"
+
+--- neo-tree configs
